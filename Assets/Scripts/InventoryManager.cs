@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using System.Diagnostics;
 using UnityEngine;
 
 public class InventoryManager : MonoBehaviour
@@ -12,7 +11,7 @@ public class InventoryManager : MonoBehaviour
     {
         InitializeInventory();
         QuickSortByValue();
-        LinearSearchByName("Quen");
+        LinearSearchByName("Kerri");
     }
 
     void InitializeInventory()
@@ -53,16 +52,17 @@ public class InventoryManager : MonoBehaviour
         return null;
     }
 
+    //sorts the items value in descending order by item value
     public void QuickSortByValue()
     {
-        if (items == null || items.Count == 0)
+        if (items == null || items.Count <= 1)
             return;
-        
+
         QuickSort(0, items.Count - 1);
 
         for (int i = 0; i < items.Count; i++)
         {
-            Debug.Log($"[{i}] {items[i].ReturnValue()}");
+            Debug.Log($"[{i}] {items[i].value} - {items[i].itemName}");
         }
     }
 
@@ -81,20 +81,20 @@ public class InventoryManager : MonoBehaviour
         float pivot = items[high].ReturnValue();
         int i = low - 1;
 
-        for (int j = low; j <= high; j++)
+        for (int j = low; j <= high - 1; j++)
         {
-            if (items[j].ReturnValue() <= pivot)
+            if (items[j].ReturnValue() >= pivot)
             {
                 i++;
 
-                InventoryItem temporary = items[low];
-                items[low] = items[high];
-                items[high] = temporary;
+                InventoryItem temporary = items[i];
+                items[i] = items[j];
+                items[j] = temporary;
 
             }
         }
-        InventoryItem temporaryNext = items[low + 1];
-        items[low + 1] = items[high];
+        InventoryItem temporaryNext = items[i + 1];
+        items[i + 1] = items[high];
         items[high] = temporaryNext;
 
         return i + 1;

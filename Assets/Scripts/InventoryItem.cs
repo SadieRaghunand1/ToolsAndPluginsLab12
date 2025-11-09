@@ -5,9 +5,9 @@ using UnityEngine;
 [System.Serializable]
 public class InventoryItem
 {
-    int id;
-    string itemName;
-    float value;
+    public int id;
+    public string itemName;
+    public float value;
 
 
     public void InitializeItem(string _name)
@@ -22,7 +22,7 @@ public class InventoryItem
         return itemName;
     }
 
-    public string ReturnValue()
+    public float ReturnValue()
     {
         return value;
     }
