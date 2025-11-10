@@ -12,28 +12,34 @@ public class InventoryManager : MonoBehaviour
         InitializeInventory();
         QuickSortByValue();
         LinearSearchByName("Kerri");
+
+        //binary
+        SortByID();
+        BinarySearchByID(50);
     }
 
     void InitializeInventory()
     {
-        items = new List<InventoryItem>();  
+        items = new List<InventoryItem>();
 
-        int _size = Random.Range(3, 20);
+        List<string> availableNames = new List<string>(possibleNames); 
+
+        int _size = Random.Range(3, Mathf.Min(20, availableNames.Count));
         for (int i = 0; i < _size; i++)
         {
             //Create item
             InventoryItem _newItem = new InventoryItem();
 
             //Randomize name
-            int _i = Random.Range(0, possibleNames.Count);
-            string _name = possibleNames[_i];
-            possibleNames.RemoveAt(_i);
+            int _i = Random.Range(0, availableNames.Count);
+            string _name = availableNames[_i];
+            availableNames.RemoveAt(_i); // added
 
             _newItem.InitializeItem(_name);
             items.Add(_newItem);
         }
-
     }
+
 
     InventoryItem LinearSearchByName(string itemName)
     {
@@ -100,5 +106,42 @@ public class InventoryManager : MonoBehaviour
         return i + 1;
     }
 
+    public void SortByID()
+    {
+        items.Sort((a, b) => a.id.CompareTo(b.id));
+        Debug.Log("sorted by ID");
+        for (int i = 0; i < items.Count; i++)
+        {
+            Debug.Log($"[{i}] ID: {items[i].id}, Name: {items[i].itemName}, Value: {items[i].value}");
+        }
+    }
 
+    public InventoryItem BinarySearchByID(int targetID)
+    {
+        int low = 0;
+        int high = items.Count - 1;
+
+        while (low <= high)
+        {
+            int mid = (low + high) / 2;
+            int currentID = items[mid].id;
+
+            if (currentID == targetID)
+            {
+                Debug.Log($"Item found! ID: {currentID}, Name: {items[mid].itemName}, Value: {items[mid].value}");
+                return items[mid];
+            }
+            else if (currentID < targetID)
+            {
+                low = mid + 1;
+            }
+            else
+            {
+                high = mid - 1;
+            }
+        }
+
+        Debug.Log("No item found with that ID");
+        return null;
+    } 
 }

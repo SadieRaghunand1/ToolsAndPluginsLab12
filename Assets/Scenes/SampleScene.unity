@@ -338,87 +338,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   items:
-  - id: 0
-    itemName: 
-    value: 0
-  - id: 0
-    itemName: 
-    value: 0
-  - id: 0
-    itemName: 
-    value: 0
-  - id: 0
-    itemName: 
-    value: 0
-  - id: 0
-    itemName: 
-    value: 0
-  - id: 0
-    itemName: 
-    value: 0
-  - id: 0
-    itemName: 
-    value: 0
-  - id: 0
-    itemName: 
-    value: 0
-  - id: 0
-    itemName: 
-    value: 0
-  - id: 0
-    itemName: 
-    value: 0
-  - id: 0
-    itemName: 
-    value: 0
-  - id: 0
-    itemName: 
-    value: 0
-  - id: 0
-    itemName: 
-    value: 0
-  - id: 0
-    itemName: 
-    value: 0
-  - id: 0
-    itemName: 
-    value: 0
-  - id: 0
-    itemName: 
-    value: 0
-  - id: 0
-    itemName: 
-    value: 0
-  - id: 0
-    itemName: 
-    value: 0
-  - id: 0
-    itemName: 
-    value: 0
-  - id: 0
-    itemName: 
-    value: 0
+  - id: 1355
+    itemName: dv
+    value: 5
+  - id: 1213
+    itemName: bob
+    value: 4
   possibleNames:
   - Max
   - Joe
   - Moe
   - Kerri
   - Mary
-  - Jack
-  - Bob
-  - Robert
-  - Layla
-  - Herbert
-  - Larry
-  - Steve
-  - Axel
-  - Ben
-  - Margeret
-  - Ollie
-  - Pam
-  - Hannah
-  - Quen
-  - Teddy
+  - Mary
+  - Mary
+  - Mary
+  - Mary
+  - Mary
 --- !u!4 &999220029
 Transform:
   m_ObjectHideFlags: 0
